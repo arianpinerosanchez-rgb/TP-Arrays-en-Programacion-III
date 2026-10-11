@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARRAYS</title>
+</head>
+<body>
+
+    <script>
+    // Bienvenida al juego.
+    
+    alert("¡Bienvenido a las Minas abandonadas!\nTú eres un minero en busca de las piedras mas preciosas del planeta. Debes elegir sabiamente el camino para encontrar la mejor recompensa...");
+    
+    // Variables del juego globales
+    
+    let vida = 100;
+    let dinero = 0;
+    let inventario = [];
+    
+    // Primer desafío
+    
+    const eleccion = parseInt(prompt(
+        "Estás frente a tres caminos:\n" +
+        "1. Subir por el sendero mas altos (riesgo de caída).\n" +
+        "2. Atravesar los charcos de lava (puedes perder vida por quemaduras).\n" +
+        "3. Atravesar la cascada (puede ser peligroso pero valioso).\n" +
+        "Elige 1, 2 o 3:"
+    ));
+    
+    // Usamos switch para manejar las elecciones
+    
+    switch (eleccion) {
+        case 1:
+            alert("¡El sendero era bastante estrecho! Caíste y perdiste 30 de vida.");
+            vida -= 30;
+            break;
+    
+        case 2:
+            alert("Pisaste accidentalmente un charco de lava. Perdiste 50 de vida.");
+            vida -= 50;
+            break;
+    
+        case 3:
+            alert("Encontraste un cofre con loot y una manzana dorada con muchos lingotes de oro y minerales de esmeralda, ganaste 25 de vida y 100 de dinero.");
+            vida += 25;
+            dinero += 100;
+            break;
+    
+        default:
+            alert("No elegiste correctamente. Pierdes un turno.");
+    }
+    
+    // Segundo desafío (solo si el jugador tiene vida)
+    
+    if (vida > 0) {
+        const segundaEleccion = parseInt(prompt(
+            `Vida actual: ${vida}.\n\n` +
+            `Dinero actual: ${dinero}.\n\n` +
+            "Llegas a una ciudad antigua:\n" +
+            "1. Entrar silenciosamente (puede haber tesoro o peligro).\n" +
+            "2. No arriesgarse (más seguro, pero no te llevas nada).\n" +
+            "Elige 1 o 2:"
+        ));
+    
+        switch (segundaEleccion) {
+            case 1:
+                alert("¡Encontraste diamante 💎, ganas +250 de dinero");
+                dinero += 250;
+                break;
+    
+            case 2:
+                alert("Llegaste sano y salvo, pero sin recompensas.");
+                break;
+    
+            default:
+                alert("Te quedaste paralizado. No pasó nada.");
+        }
+    }
+    if (vida > 0) {
+        const terceraEleccion = parseInt(prompt(
+            `Vida actual: ${vida}.\n\n` +
+            `Dinero actual: ${dinero}.\n\n` +
+            "Llegas a las cuevas de hielo:\n" +
+            "1. Escalar por las montañas de hielo (riesgo de caida).\n" +
+            "2. Rodear los picos de hielo (posible recompensa pero habran zombis congelados).\n" +
+            "3. Rodear las cuevas de hielo (seguro, pero no te llevas nada).\n" +
+            "Elige 1, 2 o 3:"
+        ));
+    
+        switch (terceraEleccion) {
+            case 1:
+                alert("Caiste sobre las estalactitas de hielo y perdiste 30 de vida.");
+                vida -= 30;
+                break;
+    
+            case 2:
+                alert("Zombis congelados te atacaron y perdiste 20 de vida pero logras encontrar 10 minerales de hierro y 10 de cobre y ganas +75 de dinero.");
+                vida -= 20;
+                dinero += 75;
+                inventario.push("10 minerales de hierro");
+                inventario.push("10 minerales de cobre");
+                break;
+            
+            case 3:
+                alert("Llegaste sano y salvo, pero sin recompensas.");
+                break;
+
+            default:
+                alert("Te quedaste paralizado. No pasó nada.");
+        }
+    }
+    if (vida > 0) {
+        const cuartaEleccion = parseInt(prompt(
+            `Vida actual: ${vida}.\n\n` +
+            `Dinero actual: ${dinero}.\n\n` +
+            "Llegas a las cuevas de azufre:\n" +
+            "1. Usar 3 de hierro para craftear un balde y luego agarrar un cubo de azufre\n" +
+            "2. Usar 3 de hierro para craftear un pico de hierro y excavar un tunel hasta el siguiente nivel\n" +
+            "3. Rodear las cuevas de azufre (seguro, pero no te llevas nada).\n" +
+            "Elige 1, 2 o 3:"
+        ));
+    
+        switch (cuartaEleccion) {
+            case 1:
+                alert("Obtuviste un cubo de azufre y perdiste 3 de hierro");
+                vida -= 30;
+                break;
+    
+            case 2:
+                alert("Te encontraste con un charco de lava y perdiste 30 de vida pero lograste encontrar 1 de esmeralda y ganas +75 de dinero.");
+                vida -= 30;
+                dinero += 75;
+                inventario.push("cubo de azufre");
+                break;
+            
+            case 3:
+                alert("Llegaste sano y salvo, pero sin recompensas.");
+                break;
+                
+            default:
+                alert("Te quedaste paralizado. No pasó nada.");
+        }
+    }
+    // Final del juego
+    </script>
+</body>
+</html>

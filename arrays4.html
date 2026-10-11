@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARRAYS</title>
+</head>
+<body>
+    <script>
+        let productos = ["teclado", "mouse", "monitor", "auriculares"];
+        let continuar = true;
+        while(continuar){
+            let op = prompt("Ingrese una opción:\n1. Agregar producto\n2. Mostrar productos\n3. Consultar producto por índice\n4. Reemplazar producto por índice\n5. Salir");
+            switch(op){
+                case "1":
+                    agregarProducto();
+                    break;
+                case "2":
+                    mostrarProductos();
+                    break;
+                case "3":
+                    consultarProducto();
+                    break;
+                case "4":
+                    reemplazarProducto();
+                    break;
+                case "5":
+                    continuar = false;
+                    console.log("Saliendo...");
+                    break;
+                default:
+                    console.log("Opción no válida");
+            }
+        }
+
+        function agregarProducto(){
+            let nuevoProducto = prompt("Ingrese el nombre del producto que desea agregar:");
+            productos.push(nuevoProducto);
+        }
+        function mostrarProductos(){
+            for (let enumaracion = 0; enumaracion < productos.length; enumaracion++) {
+                console.log(enumaracion + ": " + productos[enumaracion]);
+            }
+        }
+        function consultarProducto(){
+            let indiceElemento = parseInt(prompt("Ingrese el índice del producto que desea consultar:"));
+            if(indiceElemento >= 0 && indiceElemento < productos.length){
+                console.log("Producto en el índice " + indiceElemento + ": " + productos[indiceElemento]);
+            } else {
+                console.log("Índice fuera de rango");
+            }
+        }
+        function reemplazarProducto(){
+            let indiceElemento = parseInt(prompt("Ingrese el índice del producto que desea reemplazar:"));
+            let producto = prompt("Ingrese el nuevo nombre del producto:");
+            if(indiceElemento >= 0 && indiceElemento < productos.length){
+                productos[indiceElemento] = producto;
+                console.log("Producto en el índice " + indiceElemento + " reemplazado por: " + producto);
+            } else {
+                console.log("Índice fuera de rango");
+            }
+        }
+    </script>
